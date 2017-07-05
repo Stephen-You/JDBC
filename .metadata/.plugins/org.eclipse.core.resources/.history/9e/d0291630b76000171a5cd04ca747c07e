@@ -1,0 +1,10 @@
+package com.jdbc.practice.pool.DBCP;
+
+import org.junit.Test;
+
+public class DBCPPractice {
+	@Test
+	public void test(){
+		
+	}
+}

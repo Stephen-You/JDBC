@@ -1,0 +1,32 @@
+package com.jdbc.practice.business;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.junit.Test;
+
+import com.jdbc.practice.utils.JDBCUtils;
+
+public class BusinessPractice {
+
+	@Test
+	public void businessTest(){
+		/*
+		 * try外给引用
+		 * try内实例化
+		 * finally来关闭
+		 */
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			//获取连接
+			conn = JDBCUtils.getConnection();
+			//开启事务
+			conn.setAutoCommit(false);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

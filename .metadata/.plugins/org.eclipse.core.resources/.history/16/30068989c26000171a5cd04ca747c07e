@@ -1,0 +1,11 @@
+package com.jdbc.practice.pool.c3p0;
+
+import org.junit.Test;
+
+public class C3P0Practice {
+	//≤‚ ‘c3p0¡¨Ω”≥ÿ
+	@Test
+	public void test(){
+		
+	}
+}

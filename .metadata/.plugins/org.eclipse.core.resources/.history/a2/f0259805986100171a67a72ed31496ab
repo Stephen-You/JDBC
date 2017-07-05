@@ -1,0 +1,59 @@
+package com.DBUtils;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.junit.Test;
+
+import com.jdbc.practice.utils.JDBCUtilsNew;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+/**
+ * 首先回顾一下与数据库的连接
+ * 	JDBC连接,加载驱动,四大参数,获取连接,获取SQL语句对象
+ * 	连接池,加载连接池配置文件,获取连接
+ * 	DBUtils类
+ * @author Yorick
+ *
+ */
+public class DBUtilsTest {
+	/**
+	 * jdbc： 
+	 * 1. 得到连接d 
+	 * 2. 给出sql模板 
+	 * 3. 得到pstmt 
+	 * 4. 给问号赋值 
+	 * 5. 执行
+	 * @throws SQLException 
+	 */
+	@Test
+	public void testJDBC() throws SQLException{
+		ComboPooledDataSource source = new ComboPooledDataSource();
+		Connection conn = source.getConnection();
+		String sql ="update account set balance=balance+? where name=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setDouble(1, 10000);
+		pstmt.setString(2, "zs");
+		pstmt.executeUpdate();
+		pstmt.close();
+		conn.close();
+	}
+	/**
+	 * dbutils： 
+		 * 1. 给出sql模板 
+		 * 2. 创建QueryRunner 
+		 * 3. 得到Connection 
+		 * 4. 执行update方法
+	 * @throws SQLException 
+	 */
+	@Test
+	public void testDBUtils() throws SQLException{
+		String insert = "insert into user values(?,?,?)";
+		QueryRunner queryRunner = new QueryRunner();
+		queryRunner.update(JDBCUtilsNew.getConnection(),insert,"U_1004","ls","lsls");
+	}
+}

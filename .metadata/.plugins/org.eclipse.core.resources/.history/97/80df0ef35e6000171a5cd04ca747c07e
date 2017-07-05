@@ -1,0 +1,24 @@
+package com.jdbc.practice.utils;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class JDBCUtils {
+	//配置文件路径
+	private static String dbconfig = "dbconfig.properties";
+	//创建配置文件对象
+	Properties prop = new Properties();
+	//静态代码块,加载文件
+	static {
+		try {
+			InputStream input = new FileInputStream(dbconfig);
+			prop
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

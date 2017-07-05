@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<Context>
+		<Resource 
+		auth="Container"
+			driverClassName="com.mysql.jdbc.Driver"
+			maxActive="100"
+			maxIdle="40"
+			maxWait="12000"
+			name="jdbc/test1"
+			username="root"
+			password="123"
+			<!--  type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/test1?characterEncoding=UTF-8"-->
+			type="com.mchange.v2.c3p0.ComboPooledDataSource"
+			factory="org.apache.naming.factory.BeanFactory" 
+			jdbcUrl="jdbc:mysql://127.0.0.1/mydb1"
+			maxPoolSize="20"
+			minPoolSize ="5"
+			initialPoolSize="10"
+			acquireIncrement="2"/>
+	</Context>

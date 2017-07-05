@@ -1,0 +1,21 @@
+package com.jdbc.practice.ThreadLocal;
+
+import org.junit.Test;
+
+public class ThreadLocalPractice {
+	//当很多线程需要多次使用同一个对象，并且需要该对象具有相同初始化值的时候最适合使用ThreadLocal
+	@Test
+	public void test(){
+		/*
+		 * 内部使用当前线程为key，而我们保存的值为value
+		 */
+		final ThreadLocal<String> local = new ThreadLocal<>();
+		local.set("local1");
+		new Thread(){
+			public void run(){
+				local.set("local2");
+				System.out.println(local.get());
+			}
+		}.start();
+	}
+}

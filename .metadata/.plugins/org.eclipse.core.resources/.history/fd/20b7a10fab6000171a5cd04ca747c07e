@@ -1,0 +1,50 @@
+package com.jdbc.practice.business;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import org.junit.Test;
+
+import com.jdbc.practice.utils.JDBCUtils;
+
+public class SavepointPractice {
+	
+	/*
+	 * 李四对张三说，如果你给我转1W，我就给你转100W。
+	 * ==========================================
+	 * 
+	 * 张三给李四转1W（张三减去1W，李四加上1W）
+	 * 设置保存点！
+	 * 李四给张三转100W（李四减去100W，张三加上100W）
+	 * 查看李四余额为负数，那么回滚到保存点。
+	 * 提交事务
+	 */
+	@Test
+	public void test1(){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = JDBCUtils.getConnection();
+			//开启事务
+			conn.setAutoCommit(false);
+			//创建SQL模板
+			String update = "update account set balance=balance+? where name=?";
+			//获取SQL语句对象
+			pstmt = conn.prepareStatement(update);
+			//检查数据库是否支持保存点
+			boolean flag = conn.getMetaData().supportsSavepoints();
+			//假如支持保存点,设置保存点
+			if(flag){
+				//给张三减1w,给李四加1w
+				pstmt.setDouble(1, -10000);
+				pstmt.setString(2, "zs");
+				pstmt.executeUpdate();
+				pstmt.setDouble(1, 10000);
+				pstmt.setString(2, "ls");
+				pstmt.executeUpdate();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

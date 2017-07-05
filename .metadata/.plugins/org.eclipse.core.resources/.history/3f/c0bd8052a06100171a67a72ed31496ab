@@ -1,0 +1,9 @@
+package com.DBUtils;
+/**
+ * 在DBUtils中,我们已经看了QueryRunner的update方法,并简单看了查询,方法,下面我们深入研究一下query方法
+ * @author Yorick
+ *
+ */
+public class DBUtilsQueryTest {
+
+}

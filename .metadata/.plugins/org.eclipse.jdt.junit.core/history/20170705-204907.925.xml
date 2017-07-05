@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="C3P0Practice.test3" project="JDBCPractice02" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="test3" classname="com.jdbc.practice.pool.c3p0.C3P0Practice" time="2.47"/>
+</testrun>

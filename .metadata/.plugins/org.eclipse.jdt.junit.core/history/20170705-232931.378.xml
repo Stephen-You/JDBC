@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DBUtilsTest.testDBUtils" project="JDBCPractice02" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="testDBUtils" classname="com.DBUtils.DBUtilsTest" time="1.393"/>
+</testrun>

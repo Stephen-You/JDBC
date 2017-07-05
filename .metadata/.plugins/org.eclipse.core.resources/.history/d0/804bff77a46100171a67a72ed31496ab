@@ -1,0 +1,72 @@
+package com.DBUtils;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.junit.Test;
+
+import com.jdbc.practice.utils.JDBCUtilsNew;
+
+/**
+ * 在DBUtils中,我们已经看了QueryRunner的update方法,并简单看了查询,方法,下面我们深入研究一下query方法
+ * @author Yorick
+ */
+public class DBUtilsQueryTest {
+	//单行查询
+	@Test
+	public void queryTest() throws SQLException{
+		String select = "select * from user where username=?";
+		QueryRunner queryRunner = new QueryRunner(JDBCUtilsNew.getDataSource());
+		ResultSetHandler<User> rsh = new ResultSetHandler<User>() {
+			
+			@Override
+			public User handle(ResultSet rs) throws SQLException {
+				//把结果集装换成User对象
+				rs.next();
+				return new User(rs.getString(1), rs.getString("username"), rs.getString("password"));
+			}
+		};
+		/*
+		 * 1. sql模板
+		 * 2. 结果集处理器
+		 * 3. 对应模板中的问号
+		 * 1. 执行查询，得到RequestSet
+		 * 2. 使用ResultSet去调用ResultSetHandler的handle()方法，把ResultSet传递给它
+		 * 得到User，然后返回User
+		 */
+		User user = queryRunner.query(select, rsh,"陆逊");
+		System.out.println(user);
+	}
+	/*
+	 * BeanHandler（单行结果集处理器）：把结果集封装到一个JavaBean对象中！
+	 *   1. 它需要一个Class，通过Class创建实例
+	 *   2. 它会根据类的属性名称，与结果集的列名称的对应关系完成封装！
+	 */
+	@Test
+	public void queryTest1() throws SQLException{
+		String select ="select * from user where username=?";
+		QueryRunner queryRunner = new QueryRunner(JDBCUtilsNew.getDataSource());
+		User user = queryRunner.query(select, new BeanHandler<User>(User.class) ,"诸葛亮");
+		System.out.println(user);
+	}
+	/*
+	 * BeanListHandler（多行结果集处理器）：一行结果集对应一个JavaBean对象，多行就对应一个List
+	 *   1. 它需要一个Class，通过Class创建实例
+	 *   2. 它会根据类的属性名称，与结果集的列名称的对应关系完成封装！
+	 */
+	@Test
+	public void queryListTest() throws SQLException{
+		String select = "select * from user";
+		QueryRunner queryRunner = new QueryRunner(JDBCUtilsNew.getDataSource());
+		List<User> list = queryRunner.query(select, new BeanListHandler<>(User.class));
+		for (User user : list) {
+			
+		}
+	}
+}

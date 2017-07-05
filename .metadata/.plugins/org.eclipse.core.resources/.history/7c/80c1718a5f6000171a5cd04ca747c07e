@@ -1,0 +1,11 @@
+package com.jdbc.practice.business;
+
+import org.junit.Test;
+
+public class BusinessPractice {
+
+	@Test
+	public void businessTest(){
+		
+	}
+}

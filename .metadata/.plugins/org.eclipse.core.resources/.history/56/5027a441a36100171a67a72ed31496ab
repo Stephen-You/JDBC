@@ -1,0 +1,41 @@
+package com.DBUtils;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.junit.Test;
+
+import com.jdbc.practice.utils.JDBCUtilsNew;
+
+/**
+ * 在DBUtils中,我们已经看了QueryRunner的update方法,并简单看了查询,方法,下面我们深入研究一下query方法
+ * @author Yorick
+ */
+public class DBUtilsQueryTest {
+	//单行查询
+	@Test
+	public void queryTest(){
+		String select = "select * from user where username=?";
+		QueryRunner queryRunner = new QueryRunner(JDBCUtilsNew.getDataSource());
+		ResultSetHandler<User> rsh = new ResultSetHandler<User>() {
+			
+			@Override
+			public User handle(ResultSet rs) throws SQLException {
+				//把结果集装换成User对象
+				rs.next();
+				return new User(rs.getString(1), rs.getString("username"), rs.getString("password"));
+			}
+		};
+		/*
+		 * 1. sql模板
+		 * 2. 结果集处理器
+		 * 3. 对应模板中的问号
+		 * 1. 执行查询，得到RequestSet
+		 * 2. 使用ResultSet去调用ResultSetHandler的handle()方法，把ResultSet传递给它
+		 * 得到User，然后返回User
+		 */
+		
+	}
+}
