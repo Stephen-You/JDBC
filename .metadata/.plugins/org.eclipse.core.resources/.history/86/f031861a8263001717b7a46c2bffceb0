@@ -1,0 +1,55 @@
+package com.jdbc.practice.business.service;
+
+import org.apache.commons.dbutils.QueryRunner;
+
+public class TxQueryRunner extends QueryRunner{
+
+	@Override
+	public int[] batch(String sql, Object[][] params) throws SQLException {
+		Connection con = JdbcUtils.getConnection();
+		int[] resultValue =  super.batch(con, sql, params);
+		JdbcUtils.repleaseConnection(con);
+		return resultValue;
+	}
+
+	@Override
+	public <T> T query(String sql, ResultSetHandler<T> rsh, Object... params)
+			throws SQLException {
+		Connection con = JdbcUtils.getConnection();
+		T resultValue =  super.query(con, sql, rsh, params);
+		JdbcUtils.repleaseConnection(con);
+		return resultValue;
+	}
+
+	@Override
+	public <T> T query(String sql, ResultSetHandler<T> rsh) throws SQLException {
+		Connection con = JdbcUtils.getConnection();
+		T resultValue =  super.query(con, sql, rsh);
+		JdbcUtils.repleaseConnection(con);
+		return resultValue;
+	}
+
+	@Override
+	public int update(String sql) throws SQLException {
+		Connection con = JdbcUtils.getConnection();
+		int resultValue =  super.update(con, sql);
+		JdbcUtils.repleaseConnection(con);
+		return resultValue;
+	}
+
+	@Override
+	public int update(String sql, Object param) throws SQLException {
+		Connection con = JdbcUtils.getConnection();
+		int resultValue =  super.update(con, sql, param);
+		JdbcUtils.repleaseConnection(con);
+		return resultValue;
+	}
+
+	@Override
+	public int update(String sql, Object... params) throws SQLException {
+		Connection con = JdbcUtils.getConnection();
+		int resultValue =  super.update(con, sql, params);
+		JdbcUtils.repleaseConnection(con);
+		return resultValue;
+	}
+}

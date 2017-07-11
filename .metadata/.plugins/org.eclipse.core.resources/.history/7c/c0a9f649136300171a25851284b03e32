@@ -1,0 +1,15 @@
+package com.jdbc.practice.business.service;
+
+import java.sql.Connection;
+
+import javax.sql.DataSource;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+public class JdbcUtils {
+	//创建c3p0连接池
+	private static DataSource dataSource = new ComboPooledDataSource();
+	//需要为每个线程提供一个自己的事务专用连接
+	ThreadLocal<Connection> threadLocal = new ThreadLocal<>();
+	
+}

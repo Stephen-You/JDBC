@@ -126,9 +126,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="E:\WorkSpace\JavaWeb\JDBC\JDBC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="E:\WorkSpace\JavaWeb\JDBC\JDBC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JDBCPractice02" path="/JDBCPractice02" reloadable="true" source="org.eclipse.jst.jee.server:JDBCPractice02">  
-  		<Resource acquireIncrement="2" driverClass="com.mysql.jdbc.Driver" factory="org.apache.naming.factory.BeanFactory" initialPoolSize="10" jdbcUrl="jdbc:mysql://127.0.0.1/test1" maxPoolSize="20" minPoolSize="5" name="jdbc/test1" password="123" type="com.mchange.v2.c3p0.ComboPooledDataSource" user="root"/>
-	</Context></Host>
+      <Context docBase="E:\WorkSpace\JavaWeb\JDBC\JDBC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="E:\WorkSpace\JavaWeb\JDBC\JDBC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\customer" path="/customer" reloadable="true" source="org.eclipse.jst.jee.server:customer"/><Context docBase="E:\WorkSpace\JavaWeb\JDBC\JDBC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\cstms" path="/cstms" reloadable="true" source="org.eclipse.jst.jee.server:cstms"/></Host>
 	  
     </Engine>
   </Service>

@@ -1,0 +1,49 @@
+package com.customer.web;
+
+import java.util.List;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import cn.itcast.commons.CommonUtils;
+
+import com.customer.domain.Customer;
+import com.customer.service.CustomerService;
+import com.customer.utils.BaseServlet;
+@WebServlet("/CustomerServlet")
+public class CustomerServlet extends BaseServlet{
+	private CustomerService service = new CustomerService();
+	/**
+	 * 添加客户
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public String add(HttpServletRequest request,HttpServletResponse response){
+		/*
+		 * 1. 封装表单数据到Customer对象中
+		 * 1.5 给Customer中数据进行补全！补cid
+		 * 2. 把Customer对象传递给customerService#add()方法，完成添加业务
+		 * 3. 调用本类的findAll()方法完成显示所有客户
+		 */
+		Customer cstm = CommonUtils.toBean(request.getParameterMap(), Customer.class);
+		cstm.setCid(CommonUtils.uuid());
+		service.add(cstm);
+		return findAll(request, response);
+	}
+	/**
+	 * 查询所有客户
+	 */
+	public String findAll(HttpServletRequest request,HttpServletResponse response){
+		List<Customer> cstmList = service.findAll();
+		request.setAttribute("cstmList", cstmList);
+		return "f:/list.jsp";
+	}
+	/**
+	 * 加载客户为编辑
+	 */
+	public String load(HttpServletRequest request,HttpServletResponse response){
+		request.setAttribute("cstm",service.load(request.getParameter("cid")));
+	}
+}

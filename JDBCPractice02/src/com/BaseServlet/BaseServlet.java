@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/BaseServlet")
 public class BaseServlet extends HttpServlet {
 	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//设置接受和响应字符集
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");

@@ -9,6 +9,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\YouLin\Desktop\Day21--崔希凡--JDBC分页&amp;&amp;监听器\day20_code\cstms"/>
 			<item value="E:\WorkSpace\JavaWeb\JDBC\JDBC\RegisterAndLogin"/>
 			<item value="E:\WorkSpace\JavaWeb\JDBC\JDBC\JDBCPractice01"/>
 		</list>

@@ -1,0 +1,59 @@
+package com.customer.domain;
+
+import java.util.List;
+
+public class PageBean {
+	private int cp; // 当前页码
+	private int tr; // 总记录数
+	private int ps; // 每页记录数
+	private List<T> beans;// 当前页的数据
+	
+	private String url;//保留：contextPath + servletPath + queryString
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public int getCp() {
+		return cp;
+	}
+
+	public void setCp(int cp) {
+		this.cp = cp;
+	}
+	/**
+	 * 返回总页数
+	 */
+	public int getTp(){
+		int tp = tr/ps;
+		return tr%ps==0 ? tp : tp+1;
+	}
+	public int getTr() {
+		return tr;
+	}
+
+	public void setTr(int tr) {
+		this.tr = tr;
+	}
+
+	public int getPs() {
+		return ps;
+	}
+
+	public void setPs(int ps) {
+		this.ps = ps;
+	}
+
+	public List<T> getBeans() {
+		return beans;
+	}
+
+	public void setBeans(List<T> beans) {
+		this.beans = beans;
+	}
+	
+}

@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="DBUtilsQueryTest.queryMapTest" project="JDBCPractice02" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testcase name="queryMapTest" classname="com.DBUtils.DBUtilsQueryTest" time="1.314"/>
-</testrun>

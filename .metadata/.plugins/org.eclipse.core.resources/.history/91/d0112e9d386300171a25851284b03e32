@@ -1,0 +1,26 @@
+package com.customer.utils;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * 为了避免Servlet的“膨胀”，我们写一个BaseServlet。它的作用是让一个Servlet可以处
+ * 理多种不同的请求。不同的请求调用Servlet的不同方法。
+ * @author Yorick
+ *
+ */
+@WebServlet("/BaseServlet")
+public class BaseServlet extends HttpServlet {
+	
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//设置响应和接受字符集
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
+	}
+
+}

@@ -1,0 +1,83 @@
+package com.customer.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import com.customer.domain.Customer;
+
+import cn.itcast.jdbc.TxQueryRunner;
+
+/**
+ * 数据层
+ * @author Yorick
+ *
+ */
+public class CustomerDao {
+	//创建QueryRunner对象
+	private QueryRunner qr = new TxQueryRunner();
+	/**
+	 * 插入用户
+	 */
+	public void add(Customer cstm){
+		try {
+			//给出SQL模板
+			String insert = "insert into customer values(?,?,?,?,?,?,?)";
+			//给出SQL模板中对应的问号的值
+			Object[] objects = {cstm.getCid(),cstm.getCname(),cstm.getGender(),cstm.getBirthday()
+					,cstm.getCellphone(),cstm.getEmail(),cstm.getDescription()};
+			//更新数据库
+			qr.update(insert,objects);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	/**
+	 * 查询所有客户
+	 */
+	public List<Customer> findAll(){
+		try {
+			//SQL模板
+			String select = "select * from customer";
+			return qr.query(select, new BeanListHandler<Customer>(Customer.class));
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	/**
+	 * 按cid查询客户
+	 */
+	public Customer load(String cid){	
+		try {
+			//SQL模板
+			String select = "select * from customer where cid=?";
+			return qr.query(select, new BeanHandler<Customer>(Customer.class),cid);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	/**
+	 * 修改用户
+	 */
+	public void edit(Customer cstm){
+		try {
+			String update = "update customer set cname=?,gender=?,birthday=?,cellphone=?" +
+					", email=?, description=? where cid=?";
+			Object[] params = {cstm.getCname(), cstm.getGender(),
+				cstm.getBirthday(), cstm.getCellphone(), cstm.getEmail(),
+				cstm.getDescription(), cstm.getCid()};
+			qr.update(update, params);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	/**
+	 * 删除用户信息
+	 */
+	public void delete(){
+		
+	}
+}

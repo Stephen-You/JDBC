@@ -1,0 +1,11 @@
+package com.customer.web;
+
+import com.customer.utils.BaseServlet;
+
+public class CustomerServlet extends BaseServlet{
+	
+	public String add(){
+		
+		return "f:/list.jsp";
+	}
+}

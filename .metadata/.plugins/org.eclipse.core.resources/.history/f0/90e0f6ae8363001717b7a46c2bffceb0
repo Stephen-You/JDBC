@@ -1,0 +1,14 @@
+package com.customer.service;
+
+import com.customer.dao.CustomerDao;
+import com.customer.domain.Customer;
+
+public class CustomerService {
+	private CustomerDao customerDao = new CustomerDao();
+	/**
+	 * Ìí¼Ó¿Í»§
+	 */
+	public void add(Customer cstm){
+		customerDao.add(cstm);
+	}
+}

@@ -1,0 +1,28 @@
+package com.customer.service;
+
+import java.util.List;
+
+import com.customer.dao.CustomerDao;
+import com.customer.domain.Customer;
+
+public class CustomerService {
+	private CustomerDao customerDao = new CustomerDao();
+	/**
+	 * 添加客户
+	 */
+	public void add(Customer cstm){
+		customerDao.add(cstm);
+	}
+	/**
+	 * 查询所有客户
+	 */
+	public List<Customer> findAll(){
+		return customerDao.findAll();
+	}
+	/**
+	 * 加载客户
+	 */
+	public Customer load(String cid){
+		return customerDao.load(cid);
+	}
+}

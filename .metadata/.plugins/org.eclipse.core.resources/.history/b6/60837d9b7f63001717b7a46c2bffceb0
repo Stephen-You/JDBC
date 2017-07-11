@@ -1,0 +1,21 @@
+package com.customer.web;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.customer.service.CustomerService;
+import com.customer.utils.BaseServlet;
+
+public class CustomerServlet extends BaseServlet{
+	private CustomerService service = new CustomerService();
+	/**
+	 * Ìí¼Ó¿Í»§
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public String add(HttpServletRequest request,HttpServletResponse response){
+		
+		return "f:/list.jsp";
+	}
+}

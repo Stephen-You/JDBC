@@ -1,0 +1,17 @@
+127.0.0.1 - - [09/Jul/2017:22:04:20 +0800] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [09/Jul/2017:22:04:44 +0800] "GET /customer/list.jsp HTTP/1.1" 200 778
+127.0.0.1 - - [09/Jul/2017:22:04:59 +0800] "GET /customer/index.jsp HTTP/1.1" 200 633
+127.0.0.1 - - [09/Jul/2017:22:04:59 +0800] "GET /customer/top.jsp HTTP/1.1" 200 922
+127.0.0.1 - - [09/Jul/2017:22:04:59 +0800] "GET /customer/welcome.jsp HTTP/1.1" 200 600
+127.0.0.1 - - [09/Jul/2017:22:05:02 +0800] "GET /customer/add.jsp HTTP/1.1" 200 3345
+127.0.0.1 - - [09/Jul/2017:22:05:02 +0800] "GET /customer/jquery/jquery-1.5.1.js HTTP/1.1" 200 216840
+127.0.0.1 - - [09/Jul/2017:22:05:02 +0800] "GET /customer/jquery/jquery.datepick.js HTTP/1.1" 200 85324
+127.0.0.1 - - [09/Jul/2017:22:05:02 +0800] "GET /customer/jquery/jquery.datepick.css HTTP/1.1" 200 4008
+127.0.0.1 - - [09/Jul/2017:22:05:02 +0800] "GET /customer/jquery/jquery.datepick-zh-CN.js HTTP/1.1" 200 1427
+127.0.0.1 - - [09/Jul/2017:22:05:07 +0800] "GET /customer/CustomerServlet?method=findAll HTTP/1.1" 200 1495
+127.0.0.1 - - [09/Jul/2017:22:55:37 +0800] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [09/Jul/2017:22:55:51 +0800] "GET /cstms/index.jsp HTTP/1.1" 200 715
+127.0.0.1 - - [09/Jul/2017:22:55:51 +0800] "GET /cstms/top.jsp;jsessionid=AB4D8254DAEBCB78603BC4E14251573A HTTP/1.1" 200 913
+127.0.0.1 - - [09/Jul/2017:22:55:51 +0800] "GET /cstms/welcome.jsp;jsessionid=AB4D8254DAEBCB78603BC4E14251573A HTTP/1.1" 200 600
+127.0.0.1 - - [09/Jul/2017:22:56:25 +0800] "GET /cstms/CustomerServlet?method=findAll HTTP/1.1" 500 5743
+127.0.0.1 - - [09/Jul/2017:22:58:16 +0800] "GET /cstms/CustomerServlet?method=findAll HTTP/1.1" 200 2248

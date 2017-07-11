@@ -58,3 +58,15 @@
 127.0.0.1 - - [05/Jul/2017:22:12:42 +0800] "GET /JDBCPractice02/AServlet?method=regist HTTP/1.1" 200 862
 127.0.0.1 - - [05/Jul/2017:22:12:58 +0800] "GET /JDBCPractice02/index.jsp HTTP/1.1" 200 860
 127.0.0.1 - - [05/Jul/2017:22:12:59 +0800] "GET /JDBCPractice02/AServlet?method=quit HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2017:22:15:10 +0800] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [05/Jul/2017:22:15:15 +0800] "GET /JDBCPractice02/index.jsp HTTP/1.1" 200 860
+127.0.0.1 - - [05/Jul/2017:22:15:26 +0800] "GET /JDBCPractice02/AServlet?method=quit HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2017:22:15:30 +0800] "GET /JDBCPractice02/index.jsp HTTP/1.1" 200 860
+127.0.0.1 - - [05/Jul/2017:22:15:31 +0800] "GET /JDBCPractice02/AServlet?method=test HTTP/1.1" 302 -
+127.0.0.1 - - [05/Jul/2017:22:15:31 +0800] "GET /JDBCPractice02/index.jsp HTTP/1.1" 200 860
+127.0.0.1 - - [05/Jul/2017:22:15:35 +0800] "GET /JDBCPractice02/AServlet?method=test HTTP/1.1" 302 -
+127.0.0.1 - - [05/Jul/2017:22:15:35 +0800] "GET /JDBCPractice02/index.jsp HTTP/1.1" 200 860
+127.0.0.1 - - [05/Jul/2017:22:15:41 +0800] "GET /JDBCPractice02/AServlet?method=test HTTP/1.1" 302 -
+127.0.0.1 - - [05/Jul/2017:22:15:41 +0800] "GET /JDBCPractice02/index.jsp HTTP/1.1" 200 860
+127.0.0.1 - - [05/Jul/2017:22:53:46 +0800] "GET /JDBCPractice02//UserServlet?method=login HTTP/1.1" 500 2664
+127.0.0.1 - - [05/Jul/2017:22:58:04 +0800] "GET /JDBCPractice02//JNDIServlet HTTP/1.1" 200 -

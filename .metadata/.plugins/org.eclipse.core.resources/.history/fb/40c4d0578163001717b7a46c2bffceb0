@@ -1,0 +1,28 @@
+package com.customer.dao;
+
+import org.apache.commons.dbutils.QueryRunner;
+
+import com.customer.domain.Customer;
+
+import cn.itcast.jdbc.TxQueryRunner;
+
+/**
+ * 数据层
+ * @author Yorick
+ *
+ */
+public class CustomerDao {
+	//创建QueryRunner对象
+	private QueryRunner qr = new TxQueryRunner();
+	/**
+	 * 插入用户
+	 */
+	public void add(Customer cstm){
+		//给出SQL模板
+		String insert = "insert into customer values(?,?,?,?,?,?,?)";
+		//给出SQL模板中对应的问号的值
+		Object[] objects = {cstm.getCid(),cstm.getCname(),cstm.getGender(),cstm.getBirthday()
+				,cstm.getCellphone(),cstm.getEmail(),cstm.getDescription()};
+		
+	}
+}

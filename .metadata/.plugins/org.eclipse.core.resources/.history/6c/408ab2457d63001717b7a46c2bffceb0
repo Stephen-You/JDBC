@@ -1,0 +1,12 @@
+package com.customer.web;
+
+import com.customer.service.CustomerService;
+import com.customer.utils.BaseServlet;
+
+public class CustomerServlet extends BaseServlet{
+	private CustomerService service = new CustomerService();
+	public String add(){
+		
+		return "f:/list.jsp";
+	}
+}

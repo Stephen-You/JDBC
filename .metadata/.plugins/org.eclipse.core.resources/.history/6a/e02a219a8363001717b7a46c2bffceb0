@@ -1,0 +1,45 @@
+package com.customer.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import com.customer.domain.Customer;
+
+import cn.itcast.jdbc.TxQueryRunner;
+
+/**
+ * 数据层
+ * @author Yorick
+ *
+ */
+public class CustomerDao {
+	//创建QueryRunner对象
+	private QueryRunner qr = new TxQueryRunner();
+	/**
+	 * 插入用户
+	 */
+	public void add(Customer cstm){
+		try {
+			//给出SQL模板
+			String insert = "insert into customer values(?,?,?,?,?,?,?)";
+			//给出SQL模板中对应的问号的值
+			Object[] objects = {cstm.getCid(),cstm.getCname(),cstm.getGender(),cstm.getBirthday()
+					,cstm.getCellphone(),cstm.getEmail(),cstm.getDescription()};
+			//更新数据库
+			qr.update(insert,objects);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	/**
+	 * 查询所有客户
+	 */
+	public List<Customer> findAll(){
+		//SQL模板
+		String select = "select * from customer";
+		return qr.query(select, new BeanListHandler<Customer>(Customer.class));
+	}
+}

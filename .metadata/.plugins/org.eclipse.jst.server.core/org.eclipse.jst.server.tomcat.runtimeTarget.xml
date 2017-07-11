@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<classpath>
+  <source-attachment entry="D:/Java/Tomcat/apache-tomcat-7.0.78-windows-x86/apache-tomcat-7.0.78/lib/servlet-api.jar" runtime-id="Apache Tomcat v7.0" source-attachment-path="D:/Java/Tomcat/apache-tomcat-7.0.78-windows-x86/apache-tomcat-7.0.78/lib/javax.servlet-api-3.0.1-sources.jar"/>
+</classpath>
